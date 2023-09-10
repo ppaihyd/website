@@ -24,7 +24,7 @@
                     {% with post=post.specific %}
                     <tr>
                         <th scope="row">{{forloop.counter}}</th>
-                        <td><a href="{{post.file.url}}">{{post.intro | richtext}}</a></td>
+                        <td><a href="{{post.file.url}}" target="blank">{{post.intro | richtext}}</a></td>
                         <td>{{post.date}}</td>
                     </tr>
                     {% endwith %}
