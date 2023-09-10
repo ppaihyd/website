@@ -1,0 +1,41 @@
+{% extends request.session.msg %}
+{%load static%}
+{% block title %}Downloads{% endblock title %}
+{% load wagtailcore_tags %}
+{% block body %}
+<div style="background-image: url({% static 'media/bg.png'%});">
+<center>
+<div class="inner-wrap pt-4" style="width:85%; margin-top:5px; text-align:justify">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <h2>Downloads</h2>
+            </div>            	
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Date</th>
+                  </tr>
+                </thead>
+                <tbody>				    
+                    {% for post in blogpages %}
+                    {% with post=post.specific %}
+                    <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                        <td><a href="{{post.file.url}}">{{post.intro | richtext}}</a></td>
+                        <td>{{post.date}}</td>
+                    </tr>
+                    {% endwith %}
+                    {% endfor %}
+                    	
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</center>
+</div>
+{% endblock %}
+

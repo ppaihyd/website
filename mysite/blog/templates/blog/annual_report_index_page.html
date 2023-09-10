@@ -1,0 +1,41 @@
+{% extends request.session.msg %}
+{%load static%}
+{% block title %}Annual Report{% endblock title %}
+{% load wagtailcore_tags %}
+{% block body %}
+<div style="background-image: url({% static 'media/bg.png'%});">
+<center>
+<div class="inner-wrap pt-4" style="width:85%; margin-top:5px; text-align:justify">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <h2>Annual Report</h2>
+            </div>            	
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Year</th>
+                  </tr>
+                </thead>
+                <tbody>				    
+                    {% for post in blogpages %}
+                    {% with post=post.specific %}
+                    <tr>
+                        <td scope="row">{{forloop.counter}}</td>
+                        <td>{{post.name|richtext}}</td>
+                        <td>{{post.year|richtext}}</td>
+                    </tr>
+                    {% endwith %}
+                    {% endfor %}
+                    	
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</center>
+</div>
+{% endblock %}
+

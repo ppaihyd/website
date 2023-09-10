@@ -1,0 +1,416 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %} | PPAI</title>
+    <link rel="icon" type="image/png" href="{% static 'media/logo.png'%}">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
+<style>
+  body {
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  @keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+  @media (min-width: 320px) and (max-width: 480px){
+    .logo-img{
+      width:77px !important;
+      height:70px !important;
+      margin-left: 10px !important;
+    }
+    .logo-name1{
+      font-size:90% !important;
+    }
+    .logo-name2{
+      font-size:60% !important;
+      margin-bottom:0px;
+    }
+    pre{
+      margin-bottom:5px;
+    }
+    .nav-link{
+      margin-left:4% !important;
+      margin-top:0% !important;
+    }
+    .navbar-toggler{
+      padding:0px !important;
+    }
+    .login{
+      margin-left:15px !important;
+      background: linear-gradient(180deg, #BAE6E9 0%, rgba(255, 255, 255, 0) 198.98%);
+      border-radius: 5px;
+      font-size: 16px;
+      height:35px;
+      padding-top: 3px;
+      padding-right: 5px;
+    }
+    .login-link{
+      margin-left:10px !important;
+      font-size:60%;
+      padding-right:0px !important;
+    }
+    .register-link{
+      background: #000000; 
+      color:#FFFFFF;
+      border-radius:5px;
+      margin-left:10px; 
+      
+      padding-top:0px;
+      padding-bottom:0px;
+      margin-left:5px !important;
+      font-size:60%;
+
+    }
+    .footer-img{
+      width:77px !important;
+      height:70px !important;
+    }
+    
+  }
+  
+  @media (min-width: 481px) and (max-width: 700px){
+    .logo-img{
+      width:77px !important;
+      height:70px !important;
+      margin-left: 10px !important;
+    }
+    .logo-name1{
+      font-size:20px !important;
+    }
+    .logo-name2{
+      font-size:12px !important;
+    }
+    pre{
+      margin:0px !important;
+    }
+    .nav-link{
+      margin-left:4% !important;
+      margin-top:4% !important;
+    }
+    .login{
+      margin-left:70% !important;
+      background: linear-gradient(180deg, #BAE6E9 0%, rgba(255, 255, 255, 0) 198.98%);
+      border-radius: 5px;
+      font-size: 16px;
+      height:35px;
+      padding-top: 3px;
+      padding-right: 5px;
+    }
+    .login-link{
+      margin-left:10px !important;
+      font-size:60%;
+      padding-right:0px !important;
+    }
+    .register-link{
+      background: #000000; 
+      color:#FFFFFF;
+      border-radius:5px;
+      margin-left:10px; 
+      
+      padding-top:0px;
+      padding-bottom:0px;
+      margin-left:5px !important;
+      font-size:60%;
+
+    }
+    .footer-img{
+      width:77px !important;
+      height:70px !important;
+    }
+  }
+
+    @media (min-width: 701px) and (max-width: 1000px){
+      
+      .logo-img{
+        width:77px !important;
+        height:70px !important;
+        margin-left: 10px !important;
+      }
+      .logo-name1{
+        font-size:20px !important;
+      }
+      .logo-name2{
+        font-size:12px !important;
+      }
+      .nav-link{
+        margin-left:4% !important;
+        margin-top:4% !important;
+      }
+      .login{
+        margin-left:75% !important;
+        margin-top:-10% !important;
+        background: linear-gradient(180deg, #BAE6E9 0%, rgba(255, 255, 255, 0) 198.98%);
+        border-radius: 5px;
+        font-size: 16px;
+        height:35px;
+        padding-top: 3px;
+        padding-right: 5px;
+      }
+      .login-link{
+        margin-left:10px !important;
+        font-size:60%;
+        padding-right:0px !important;
+      }
+      .register-link{
+        background: #000000; 
+        color:#FFFFFF;
+        border-radius:5px;
+        margin-left:10px; 
+        
+        padding-top:0px;
+        padding-bottom:0px;
+        margin-left:5px !important;
+        font-size:60%;
+  
+      }
+      .footer-img{
+        width:77px !important;
+        height:70px !important;
+      }
+  }
+  @media (min-width: 1001px) and (max-width: 1500px){
+    .footer-img{
+      width:120px !important;
+      height:110px !important;
+    }
+    .nav-link{
+      
+    }
+    .login{
+      margin-left:75% !important;
+      margin-top:-10% !important;
+    }
+    .login-link{
+     
+    }
+    .register-link{
+      
+     
+    }
+  }
+
+  @media (min-width: 1501px) and (max-width: 1900px){
+    .footer-img{
+      width:120px !important;
+      height:120px !important;
+    }
+    .login{
+      margin-left:75% !important;
+      margin-top:-10% !important;
+    }
+  }
+</style>
+<body>
+  
+    <nav class="navbar0 navbar top-container">
+      <img src="{% static 'media/logo1.png'%}" width="120" height="110" class="top-nav-ele logo-img img-fluid" style="margin-left:39px" alt="">
+      <a href="#" class="nav-link top-nav-ele" style="margin-top:30px; margin-left:20px;">
+        <pre><b style="font-size:26px"  class="logo-name1">Plant Protection Association of India</b>
+<p style="font-size:16px"  class="logo-name2">(Regn. No. S399 of 1949-50 under the societies registration act xXI of 1860)</p></pre>
+      </a>
+    </nav>
+    <!-- new -->
+    <nav class="navbar navbar1 navbar-expand-lg">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link disabled text-white" aria-current="page" href="/">View Database</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled text-white" aria-current="page" href="/">Pending</a>
+              </li>
+              
+            
+
+          </div>
+        </div>
+      </nav>
+
+      {% block body %}{% endblock body %}
+
+      <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Section: Social media -->
+  <center><img src="{% static 'media/logo.png'%}" width="120" height="110" class="top-nav-ele" style="padding-top:10px" alt=""></center>
+
+
+  <!-- Section: Links  -->
+  <section class="" style="  ">
+    <div class="container text-center text-lg-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class=" mx-auto mb-4 col-md">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4 text-white">
+            ABOUT US  
+          </h6>
+          <p>
+            <a href="/society/" class="text-reset text-decoration-none footer-contents">The Society</a>
+          </p>
+          <p>
+            <a href="/council/" class="text-reset text-decoration-none footer-contents">The Executive Council</a>
+          </p>
+          <p>
+            <a href="/legendary/" class="text-reset text-decoration-none footer-contents">The Legendary</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class=" mx-auto mb-4 col-md">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4 text-white">
+            PUBLICATIONS
+          </h6>
+          <p>
+            <a href="/journals/" class="text-reset text-decoration-none footer-contents">Journals</a>
+          </p>
+          <p>
+            <a href="/editorial/" class="text-reset text-decoration-none footer-contents">Editorial Board</a>
+          </p>
+          <p>
+            <a href="/books/" class="text-reset text-decoration-none footer-contents">Books</a>
+          </p>
+          <p>
+            <a href="/newsletter/" class="text-reset text-decoration-none footer-contents">Newsletter</a>
+          </p>
+          <p>
+            <a href="/annual/" class="text-reset text-decoration-none footer-contents">Annual Report</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class=" mx-auto mb-4 col-md">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4 text-white">
+            AWARDS
+          </h6>
+          <p>
+            <a href="/awards/" class="text-reset text-decoration-none footer-contents">Awards of the society</a>
+          </p>
+          <p>
+            <a href="/nomination/" class="text-reset text-decoration-none footer-contents">Awards Nomination</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class=" mx-auto mb-4 col-md">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4 text-white">
+            CONFERENCES
+          </h6>
+          <p>
+            <a href="/conferences/" class="text-reset text-decoration-none footer-contents">National</a>
+          </p>
+          <p>
+            <a href="/workshopt/" class="text-reset text-decoration-none footer-contents">Workshops</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class=" mx-auto mb-4 col-md">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4 text-white">
+            MEMBERSHIP
+          </h6>
+          <p>
+            <a href="/membership/" class="text-reset text-decoration-none footer-contents">Membership Info</a>
+          </p>
+          <p>
+            <a href="/directory/" class="text-reset text-decoration-none footer-contents">Membership Directory </a>
+          </p>
+          <p>
+            {% comment %} <a href="/membership/" class="text-reset text-decoration-none footer-contents">Registration</a> {% endcomment %}
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 col-md footer-contents">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4 text-white">Contact</h6>
+          <p>Dr. Kajal Kumar Biswas Secretary <br><br>Indian Phytopathological Society  Division of Plant Pathology IARI, New Delhi 110012, INDIA</p>
+          
+          <p>  </p>
+          <p>
+              
+          </p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4 bot-footer" >
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+        <a href="#!" class="text-reset text-decoration-none" >Feedback</a>
+        <a href="#!" class="text-reset text-decoration-none">Terms & Conditions</a>
+        <a href="#!" class="text-reset text-decoration-none">Privacy Policy</a>
+        <a href="#!" class="text-reset text-decoration-none">Refund Policy</a>
+      </div>
+      <!-- Left -->
+  
+      <!-- Right -->
+      <div>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+      © 2023 Plant Protection Association of India. All rights reserved
+    </section>
+    <!-- Section: Social media -->
+    
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+    
+</body>
+</html>

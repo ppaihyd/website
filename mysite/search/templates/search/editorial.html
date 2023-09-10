@@ -1,0 +1,130 @@
+{% extends request.session.msg %}
+
+{%load static%}
+
+{% block title %}The Executive Council{% endblock title %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'sidebar.css' %}">
+<script>
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+
+</script>
+<style>
+
+    @media (min-width: 576px){
+        .col-sm-6 {
+            width: 30%  !important;
+        }
+    }
+
+</style>
+
+
+<div id="wrapper" style="background-image: url({% static 'media/bg.png'%});">
+    <center>
+    <div id="content" style="width:85%; margin-top:5px; text-align:justify; min-height:0 !important">
+        <h2>About the Editorial Board</h2>
+        <p>{% lorem 1 b random %}</p><br>
+          
+
+        <h2 id="pec">Editorial Board</h2>
+        <div class="row ml-0 mr-0 w-100">              
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/board/saravanan.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr L Saravanan, ICAR-National Bureau of Plant Genetic Resources, Regional Station, Hyderabad 500 030, India
+                        </h3>
+                        <p class="card-text mb-1" style="font-size:15px;font-weight:800">Editor-In-Chief</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <center><a href="#"><img class="img-fluid" style="width:70%" src="{% static 'media/board/kavita.jpg'%}" alt="#" /></a></center>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr Kavitha Gupta, ICAR-National Bureau of Plant Genetic Resources, Pusa Campus, New Delhi 110012, India
+                        </h3>
+                        <p class="card-text mb-1" style="font-size:15px;font-weight:800">Associate Editor</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/board/prasanna.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr Prasanna Holajjer, ICAR-National Bureau of Plant Genetic Resources, Regional Station, Hyderabad, 500030, India</h3>
+                        <p class="card-text mb-1" style="font-size:15px;font-weight:800">Associate Editor</p>   
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <br>
+        <h2 id="pec">Editorial Board members</h2>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1.</th>
+                <td>Dr. J. Alice R.P. Sujeetha, National Institute of Plant Health Management (NIPHM), Hyderabad 500 030, India
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2.</th>
+                <td>Dr. Jameel Aktar, ICAR-National Bureau of Plant Genetic Resources, Pusa Campus, New Delhi 110012
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">3.</th>
+                <td>Dr. Kuldeep Singh Jadon, ICAR-Central Arid Zone Research Institute, Jodhpur 342 003, Rajasthan, India
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">4.</th>
+                <td>Dr. Jose Romeno Faleiro, FAO Expert (Red Palm Weevil), Goa, India
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">5.</th>
+                <td>Dr. Hamadttu Abdel Farag Elshafie, Senior Research Entomologist and Head, IPM Program in Date Palm, Date Palm Research Center of Excellence, P.O. Box 400, Al Ahsa 31982, King Faisal University, Hofuf, Kingdom of Saudi Arabia
+                </td>
+       
+              </tr>
+              <tr>
+                <th scope="row">6.</th>
+                <td>Dr. P. Anandhi, Tamil Nadu Rice Research Institute, Tamil Nadu Agricultural University, Aduthurai-612 101, Tamil Nadu, India.
+                </td>
+           
+              </tr>
+              <tr>
+                <th scope="row">7.</th>
+                <td>Dr. P. Raja, College of Horticulture and Forestry,Central Agricultural University, Pasighat 791 102, Arunachal Pradesh, India
+
+                </td>
+        
+              </tr>
+              <tr>
+                <th scope="row">8.</th>
+                <td>Dr. Ravindra Chandra Joshi, Senior Consultant, Philippine Rice Research Institute, Philippines</td>
+  
+              </tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+    </center>
+
+</div>
+
+{% endblock body %}

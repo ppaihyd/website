@@ -1,0 +1,57 @@
+
+{% extends request.session.msg %}
+
+
+{%load static%}
+
+
+
+
+{% block title %}Awards{% endblock title %}
+
+{% load wagtailcore_tags %}
+
+{% block body %}
+
+    <!--  <div class="intro">{{ page.intro|richtext }}</div> -->
+<div style="background-image: url({% static 'media/bg.png'%});">
+  <center>
+    <div class="inner-wrap pt-4" style="width:85%; margin-top:5px; text-align:justify">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-3">
+              <h2>Awards</h2>
+            </div>  
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name of the awards</th>
+                  <th scope="col">Year</th>
+                  <th scope="col">Details</th>
+                  <th scope="col">Register</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for post in blogpages %}
+              {% with post=post.specific %}
+              <tr>
+
+                  <th scope="row">{{forloop.counter}}</th>
+                  <td>{{post.title}}</td>
+                  <td>{{post.year|richtext}}</td>
+                  <td><a href="{% pageurl post %}">view award</a></td>
+                  <td><a href="#">contact</a></td>
+                  
+              </tr>
+              {% endwith %}
+              {% endfor %}
+          </tbody>
+        </table>
+  </div>
+</div>
+</div>
+  </center>
+</div>
+{% endblock %}
+

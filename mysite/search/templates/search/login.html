@@ -1,0 +1,73 @@
+{% extends 'search/loginbase.html' %}
+{% load static %}
+
+
+{% block title %}Login{% endblock title %}
+
+    {% block body %}
+    {% for message in messages %}
+    
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %}
+    
+    <div class="wrapper" style=" background-image: url({% static 'media/bg.png'%});">
+    <section class="vh-100 gradient-custom">
+      <div class="container py-0 px-10 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-0 !important">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card-body p-5 text-center">
+                <div class="card bg-dark text-white" style="border-radius: 1rem; background: linear-gradient(180deg, #36D0DC 0%, #588CE4 100%);                ">
+    
+                <div class="mb-md-5 mt-md-4 pb-0 px-3">
+    
+                  <img class="image"src="{% static 'media/login.png'%}" style ="margin-bottom:20px;"></img>
+                  <form method="post" action="/result/">
+                    {% csrf_token %}
+                  <div class="form-outline form-white mb-4">
+                    <input type="text" name="username" placeholder="Username" required class="form-control form-control-lg" />
+                    
+                  </div>
+    
+                  <div class="form-outline form-white mb-4">
+                    <input type="password" name="password" placeholder="Password" required class="form-control form-control-lg" />
+                    
+                  </div>
+    
+                  <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+    
+                  <input type="submit" class="btn btn-outline-light btn-lg px-5">
+    
+                </div>
+              </form>
+                <div>
+                  <p class="mb-0">Don't have an account? <a href="../register/" class="text-white-50 fw-bold">Sign Up</a>
+                  </p>
+                </div>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+    {% endblock body %}
+
+
+
+{% comment %} 
+    <h1>Login</h1>
+    <form method="post" action="/result/">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="username" required><br><br>
+        <input type="password" name="password" placeholder="password" required><br><br>
+        <input type="submit"><br><br>    
+    </form>
+    <a href="../register/">Not a user? Click here to login</a> {% endcomment %}
+    <hr>
+    

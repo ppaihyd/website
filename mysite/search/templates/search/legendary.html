@@ -1,0 +1,365 @@
+{% extends request.session.msg %}
+
+{%load static%}
+
+{% block title %}The Executive Council{% endblock title %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'sidebar.css' %}">
+<script>
+    var x=3;
+    $(document).ready(function () {
+        var x = 1;
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+            
+        });
+        
+    });
+    function myFunction() {
+        
+        if(x%2 ==0)
+        {
+            document.getElementById("demo").innerHTML = "View less";
+            x++;
+
+        }
+        else
+        {
+            document.getElementById("demo").innerHTML = "View more";
+            x++;
+
+        }
+      }
+</script>
+<style>
+        .bg-light{
+           background-color:transparent !important;
+       } 
+    @media (min-width: 576px){
+        .col-sm-6 {
+            width: 30%  !important;
+        }
+    }
+
+</style>
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        
+
+        <ul class="list-unstyled components">
+            
+            <li>
+                <a href="#">Honorary Fellow</a>
+                
+            </li>
+            <hr>
+            <li>
+                <a href="#pec">Advisory Board</a>
+            </li>
+            
+        </ul>
+
+        
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" style="background-image: url({% static 'media/bg.png'%});">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span id="demo" onclick="myFunction()">View less</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                
+            </div>
+        </nav>
+
+
+
+        <h2 id="pec">Present Executive Council</h2>
+        <div class="row ml-0 mr-0 w-100">              
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/board/sarath.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr B Sarath Babu</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">President</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/board/celia.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr Celia Chalam</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">Vice-President</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/board/srinivas.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr M Srinivas Prasad</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">Vice-President</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/board/jagadeeshwar.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr R Jagadeeshwar</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">Vice-President</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/board/parameshwari.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr B Parameswari</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">General Secretary</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/board/prakasam.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr V Prakasam</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">Assistant Secretary</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/board/bhaskar.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr Bhasker Bajaruy</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">Treasurer</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/board/ramesh.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr K Rameash</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">Councillor</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/board/stanley.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr J Stanley</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">Councillor</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/board/gotyal.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr B S Gotyal</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">Councillor</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/board/sagar.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr D Sagar</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">Councillor</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr Alpeshkumar V Khanpara</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">Councillor</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/board/saravanan.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr L Saravanan</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">Chief Editor</p>   
+                    </div>
+                </div>
+            </div> 
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr Kavitha Gupta</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">Associate Editor</p>   
+                    </div>
+                </div>
+            </div> 
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/board/prasanna.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr Prasanna Holajjer</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">Associate Editor</p>   
+                    </div>
+                </div>
+            </div>  
+        </div>
+
+        <hr>
+
+        <h3 id="pres">Past Presidents</h3>
+        <div class="row ml-0 mr-0 w-100">              
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr.K.K.Nirula</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">President (1972-78)</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr.N.C.Joshi</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">President (1979-80)</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr.K.D.Paharia</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">President (1981-84)</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr.N.C.Joshi</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">President (1985-86)</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr.D.Bap Reddy</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">President (1987-88)</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr.S.Jayaraj</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">President (1989-90)</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr.D.V.R.Reddy</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">President (1991-97)</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr.K.Krishnaiah</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">President (1997-99)</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr.P.S.Chandukar</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">President (2000-02)</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr Y L Nene</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">President (2003-06)</p>   
+                    </div>
+                </div>
+            </div>  
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr K S R K Murthy</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">President (2007-09)</p>   
+                    </div>
+                </div>
+            </div> 
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr K S Varaprasad</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">President (2010-12)</p>   
+                    </div>
+                </div>
+            </div> 
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr Y L Nene</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">President (2003-04)</p>   
+                    </div>
+                </div>
+            </div> 
+            <div class="col-sm-4 col-lg-3 col-xl-2">
+                <div class="card shadow">
+                    <a href="#"><img class="img-fluid" src="{% static 'media/logo.png'%}" alt="#" /></a>
+                    <div class="card-body">
+                        <h3 class="card-title mb-1" style="font-size:15px;">Dr Y L Nene</h3>
+                        <p class="card-text mb-1" style="font-size:15px;">President (2003-04)</p>   
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <hr>
+
+
+    </div>
+</div>
+
+
+{% endblock body %}

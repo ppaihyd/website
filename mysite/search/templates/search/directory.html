@@ -1,0 +1,44 @@
+{% extends 'search/base2.html' %}
+
+{%load static%}
+
+{% block title %}Membership{% endblock title %}
+
+{% block body %}
+
+
+<div class="wrapper" style="background-image: url({% static 'media/bg.png'%});">
+  <center>
+    <div id="content " style="width:85%; margin-top:5px; text-align:justify">
+      <table class="table">
+        <h2>Directory</h2>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Address</th>
+          </tr>
+        </thead>
+        <tbody>
+      {% for record in result %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{forloop.counter}}</td>
+        <td>{{record.username}}</td>
+        <td>{{record.email}}</td>
+        <td>{{record.phone}}</td>
+        <td>{{record.designation}}</td>
+        <td>{{record.address}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+  </center>
+</div>
+{% endblock body %}

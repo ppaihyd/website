@@ -1,0 +1,232 @@
+{% extends request.session.msg %}
+
+{%load static%}
+
+{% block title %}Membership{% endblock title %}
+
+{% block body %}
+
+<style>
+
+    @media (min-width: 576px){
+        .col-sm-6 {
+            width: 30%  !important;
+        }
+    }
+    table{
+      display:inline;
+    }
+    html, body{padding: 0; margin: 0;}
+    .ticker_wrap{display: flex;}
+    .ticker__breaking{
+     white-space: nowrap;
+     background: red;
+       color: #fff;
+       overflow: hidden;
+       padding: 10px 6px;
+      display: inline-block; 
+      font-weight: bold;
+    }
+    .ticker__viewport {
+       background: #0067E5;
+       color: #fff;
+       overflow: hidden;
+       padding: 10px 0;
+      display: inline-block;
+      flex-grow: 1
+    }
+    .ticker__viewport a {
+      cursor: context-menu;
+      color: #fff;
+      text-decoration: none;
+    }
+    .ticker__viewport a:hover {
+      color: yellow;
+      font-weight: bold;
+    }
+     .ticker__list {
+       list-style-type: none;
+       padding: 0;
+       margin: 0;
+       display: flex;
+    }
+     .ticker__item {
+       display: inline-block;
+       white-space: nowrap;
+       padding-right: 40px;
+    }
+    .ticker__item:before{
+      content: "";
+      font-weight: bold;
+    }
+    .carousel-item.active,
+    .carousel-item-next,
+    .carousel-item-prev{
+        display:block;
+    }
+    
+
+</style>
+
+<form method="post" action="/getmembership/">
+  {% csrf_token %}
+  <div class="wrapper" style=" background-image: url({% static 'media/bg.png'%});">
+    <div class="ticker_wrap">
+      <div class="ticker__breaking"> Note:  </div>
+      <div class="ticker__viewport">
+          <ul class="ticker__list" data-ticker="list">
+              <li class="ticker__item" data-ticker="item"><a href="javascrit:void(0)"><b>@@Kindly ensure your payment is completed prior to filling out the form.</b> </a></li>
+              <li class="ticker__item" data-ticker="item"><a href="javascrit:void(0)">@@Kindly ensure your payment is completed prior to filling out the form. </a></li>
+              {% comment %} <li class="ticker__item" data-ticker="item">second  </li>
+              <li class="ticker__item" data-ticker="item">third </li> {% endcomment %}
+          </ul>
+      </div>
+  </div>
+  <div class="wrapper" style=" background-image: url({% static 'media/bg.png'%});">
+    <center >
+      <table class="table table-bordered" style="width:30%; margin-top:10px">
+        <thead>
+          <tr>
+            <th scope="col">Membership Type</th>
+            <th scope="col">Fee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+
+            <td>Life Fellow</td>
+            <td>Rs. 8000/-</td>
+
+          </tr>
+          <tr>
+
+            <td>Ordinary (Annual)</td>
+            <td>Rs. 1500/-</td>
+
+          </tr>
+          <tr>
+
+            <td>Student (Annual)</td>
+            <td>Rs. 750/-</td>
+
+          </tr>
+          <tr>
+
+            <td>Admission Fee</td>
+            <td>--</td>
+
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-bordered" style="width:60%;margin-top:10px;">
+        <thead>
+          
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Account Name</b></td>
+            <td>Plant Protection Association of India</td>
+          </tr>
+          <tr>
+            <td><b>Postal Address</b></td>
+            <td>ICAR - NBPGR, Regional Station, Hyderabad - 500030</td>
+          </tr>
+          <tr>
+            <td ><b>Account Number/ Account Type</b></td>
+            <td>52114974468/ Savings Account</td>
+          </tr>
+          <tr>
+            <td ><b>Bank Name</b></td>
+            <td>State Bank of India</td>
+          </tr>
+          <tr>
+            <td ><b>Branch Name</b></td>
+            <td>Budvel</td>
+          </tr>
+          <tr>
+            <td ><b>Postal Address</b></td>
+            <td>Budvel, Extension counter, Rajendra Nagar, Hyderabad - 500030</td>
+          </tr>
+          <tr>
+            <td ><b>IFSC Code</b></td>
+            <td>SBIN0020378</td>
+          </tr>
+        </tbody>
+      </table>
+        <div class="row" style="width:85%; margin-top:20px;margin-bottom:20px;margin-left:30px; ">
+            <div class="col-sm-6">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top img-fluid" src="{% static 'media/img1.jpg'%}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">LifeLong Membership</h5>
+                  <input type="submit" class="nav-link btn btn-outline-primary" name="life" value="Apply" style="padding:15px;">
+
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card" style="width: 15rem;">
+                <img class="card-img-top img-fluid" src="{% static 'media/img1.jpg'%}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Student Membership</h5>
+                  <input type="submit" class="nav-link btn btn-primary" name="student" value="Apply" style="padding:15px;">
+
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card" style="width: 15rem;">
+                <img class="card-img-top img-fluid" src="{% static 'media/img1.jpg'%}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Annual <br> Membership </h5>
+                  <input type="submit" class="nav-link btn btn-primary" name="annual" value="Apply" style="padding:10px;">
+                  <br>
+
+                </div>
+            </div>
+        </div>
+    </center>
+  </div>
+</form>
+
+<script type="text/javascript">
+  var $ticker = $('[data-ticker="list"]'),
+  tickerItem = '[data-ticker="item"]'
+  itemCount = $(tickerItem).length,
+  viewportWidth = 0;
+
+function setupViewport(){
+  $ticker.find(tickerItem).clone().prependTo('[data-ticker="list"]');
+  
+  for (i = 0; i < itemCount; i ++){
+      var itemWidth = $(tickerItem).eq(i).outerWidth();
+      viewportWidth = viewportWidth + itemWidth;
+  }
+  
+  $ticker.css('width', viewportWidth);
+}
+
+function animateTicker(){
+  $ticker.animate({
+      marginLeft: -viewportWidth
+    }, 60000, "linear", function() {
+      $ticker.css('margin-left', '0');
+      animateTicker();
+    });
+}
+
+function initializeTicker(){
+  setupViewport();
+  animateTicker();
+  
+  $ticker.on('mouseenter', function(){
+      $(this).stop(true);
+  }).on('mouseout', function(){
+      animateTicker();
+  });
+}
+
+initializeTicker();
+</script>
+
+{% endblock body %}

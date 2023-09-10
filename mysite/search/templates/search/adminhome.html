@@ -1,0 +1,45 @@
+{% extends request.session.msg %}
+{% load static %}
+
+
+{% block title %}Admin Home{% endblock title %}
+
+    {% block body %}
+
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Member</th>
+            <th scope="col">Phone No.</th>
+            <th scope="col">Qualification</th>
+            <th scope="col">State</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for i in result %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{i.firstname}}</td>
+            <td>{{i.lastname}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.member}}</td>
+            <td>{{i.phone}}</td>
+            <td>{{i.qualification}}</td>
+            <td>{{i.state}}</td>
+          </tr>
+         {% endfor %}
+        </tbody>
+      </table>
+    
+    
+    {% endblock body %}
+
+
+
+
+    

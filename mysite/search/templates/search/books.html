@@ -1,0 +1,129 @@
+{% extends request.session.msg %}
+
+{%load static%}
+
+{% block title %}Journals{% endblock title %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'sidebar.css' %}">
+<script>
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+
+</script>
+<style>
+
+    @media (min-width: 576px){
+        .col-sm-6 {
+            width: 30%  !important;
+        }
+    }
+
+</style>
+
+<div class="wrapper" style="background-image: url({% static 'media/bg.png'%});">
+  <center>
+    <!-- Page Content  -->
+    <div id="content" style="width:85%; margin-top:5px; text-align:justify">
+        <h2>Books</h2>
+        <p>Plant Protection Association of India has brought out a number of useful publications from time to time. Advances made in the field of plant protection have been compelled and published for the benefits of different stakeholders.</p>
+
+        <div class="line"></div>
+
+        {% comment %} <div class="row">
+          <div class="col-sm-3">
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="{% static 'media/img1.jpg'%}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" style="text-align:center !important">Climate change in Indian farming: Effects, management practices, policies and programmes</h5>
+                <p class="card-text">Indian Journal of Plant Protection Vol. 48 No. 4, 2020 (236-248)</p>
+                <a href="{% static 'media/ppai documents/journals/journal1.pdf'%}" download class="btn btn-primary">Download</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="{% static 'media/img1.jpg'%}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" style="text-align:center !important">Mealybugs as pests of flower and medicinal crops: An Overview</h5>
+                <p class="card-text">Indian Journal of Plant Protection Vol. 48 No. 1&2, 2020 (1-10)</p>
+                <a href="{% static 'media/ppai documents/journals/journal2.pdf'%}" download class="btn btn-primary">Download</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="{% static 'media/img1.jpg'%}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" style="text-align:center !important">Biophysical and structural mechanisms of resistance against pod 
+                    borer complex in pgeonpea - A review</h5>
+                <p class="card-text">Indian Journal of Plant Protection Vol. 48 No. 3, 2020 (123-131)</p>
+                <a href="{% static 'media/ppai documents/journals/journal3.pdf'%}" download class="btn btn-primary">Download</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="{% static 'media/img1.jpg'%}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" style="text-align:center !important">Invasive Alien Insect Pests: A jumping threat to food security 
+                  and farmers’ livelihoods</h5>
+                <p class="card-text">Indian Journal of Plant Protection Vol. 50 No. 4, 2022 (99-114)</p>
+                <a href="{% static 'media/ppai documents/journals/journal4.pdf'%}" download class="btn btn-primary">Download</a>
+              </div>
+            </div>
+          </div>
+        </div> {% endcomment %}
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="{% static 'media/vol1.png'%}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" style="text-align:center !important">Resources Management in Plant Protection Volume-1 (2002)</p>
+                {% comment %} <a href="{% static 'media/ppai documents/journals/journal1.pdf'%}" download class="btn btn-primary">Download</a> {% endcomment %}
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="{% static 'media/vol2.png'%}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" style="text-align:center !important">Resources Management in Plant Protection Volume-II (2002)</p>
+                {% comment %} <a href="{% static 'media/ppai documents/journals/journal2.pdf'%}" download class="btn btn-primary">Download</a> {% endcomment %}
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="{% static 'media/imgg.png'%}" height="320" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" style="text-align:center !important">Plant Health Management for Food Security
+                  Issues and Approaches (2016)</p>
+                {% comment %} <a href="{% static 'media/ppai documents/journals/journal2.pdf'%}" download class="btn btn-primary">Download</a> {% endcomment %}
+              </div>
+            </div>
+          </div> 
+          <div class="col-sm-3">
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="{% static 'media/imgg2.png'%}" height="320" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" style="text-align:center !important">Pests and Pest Management in India - The changing scenario (1992)</p>
+                {% comment %} <a href="{% static 'media/ppai documents/journals/journal2.pdf'%}" download class="btn btn-primary">Download</a> {% endcomment %}
+              </div>
+            </div>
+          </div>   
+        </div>
+
+        <div class="line"></div>
+
+    </div>
+  </center>
+</div>
+
+
+
+{% endblock body %}

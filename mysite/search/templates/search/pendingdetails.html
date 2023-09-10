@@ -1,0 +1,51 @@
+{% extends request.session.msg %}
+{% load static %}
+
+
+{% block title %}Admin Home{% endblock title %}
+
+    {% block body %}
+
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone No.</th>
+            <th scope="col">Qualification</th>
+            <th scope="col">State</th>
+            <th scope="col">Transaction Id</th>
+            <th scope="col">Applied For</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for i in result %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{i.firstname}}</td>
+            <td>{{i.lastname}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.phone}}</td>
+            <td>{{i.qualification}}</td>
+            <td>{{i.state}}</td>
+            <td>{{i.transactionid}}</td>
+            <td>{{i.appliedfor}}</td>
+            <td><a href="{% url 'verify' id=i.id%}"><button type="button" class="btn btn-outline-success" id="{{i.id}}">Verify</button></a></td>
+            <td><a href="{% url 'remove' id=i.id%}"><button type="button" class="btn btn-outline-danger" id="{{i.id}}">Remove</button></a></td>
+          </tr>
+         {% endfor %}
+        </tbody>
+      </table>
+    
+    
+    {% endblock body %}
+
+
+
+
+    

@@ -1,0 +1,213 @@
+{% extends request.session.msg %}
+
+{%load static%}
+
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+{% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+<style>
+    html, body{padding: 0; margin: 0;}
+.ticker_wrap{display: flex;}
+.ticker__breaking{
+ white-space: nowrap;
+ background: red;
+	 color: #fff;
+	 overflow: hidden;
+	 padding: 10px 6px;
+  display: inline-block; 
+  font-weight: bold;
+}
+.ticker__viewport {
+	 background: #0067E5;
+	 color: #fff;
+	 overflow: hidden;
+	 padding: 10px 0;
+  display: inline-block;
+  flex-grow: 1
+}
+.ticker__viewport a {
+  cursor: context-menu;
+  color: #fff;
+  text-decoration: none;
+}
+.ticker__viewport a:hover {
+  color: yellow;
+  font-weight: bold;
+}
+ .ticker__list {
+	 list-style-type: none;
+	 padding: 0;
+	 margin: 0;
+	 display: flex;
+}
+ .ticker__item {
+	 display: inline-block;
+	 white-space: nowrap;
+	 padding-right: 40px;
+}
+.ticker__item:before{
+  content: "";
+  font-weight: bold;
+}
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev{
+    display:block;
+}
+ 
+</style>
+<div style="background-image: url({% static 'media/bg.png'%});"> 
+    <div class="ticker_wrap">
+        <div class="ticker__breaking"> Latest:  </div>
+        <div class="ticker__viewport">
+            <ul class="ticker__list" data-ticker="list">
+                <li class="ticker__item" data-ticker="item"><a href="javascrit:void(0)">@@ International Conference on Plant Health Management
+                    ICPHM 2023 - Innovation and Sustainability is being organised by PPAI on 15th - 18th November 2023 | Professor Jayashankar Telangana State Agricultural University (PJTSAU) </a></li>
+                {% comment %} <li class="ticker__item" data-ticker="item">second  </li>
+                <li class="ticker__item" data-ticker="item">third </li> {% endcomment %}
+            </ul>
+        </div>
+    </div>
+    <center>
+        <a href="https://icphm2023.com/" target="blank"><img class="conferenceimg img-fluid" src="{% static 'media/conference.jpg'%}" style="margin-top:5px"></a>
+        
+        <p style="width:85%; margin-top:20px; text-align:justify">Plant health management (PHM) is the science and practice of comprehending the interplay of biotic and abiotic
+        stresses that limit plants from achieving their full genetic potential as crops, ornamentals, forest trees, or other
+        uses. PHM embodies bulwarking and building upon the concept of Integrated Pest Management (IPM) of these
+        stresses to ensure ecological, economic, and social benefits for all the stakeholders, including general public.
+        Research is traditionally defined as a systematic investigation into an area of study in order to reveal new
+        inferences, re-examine existing knowledge, or establish new Acts. Entrepreneurship is the process of designing a
+        new product/service and converting it to become a successful business.
+        The main objective of this international conference is to pursue for global opportunities in Innovation and
+        Sustainability of research and entrepreneurship relating to the field of PHM. Agriculture continues to be the
+        backbone for the economy of many countries as majority of the human population is dependent on it for food,
+        feed, and fibre. The deliberations in this conference are expected to focus on preparing a roadmap for the
+        identification, delineation and exploitation of the core research areas of PHM for business prospects in the field of
+        Agriculture.
+        <a href="https://icphm2023.com/" target="blank">View More</a></p>
+
+    </center>
+    
+
+
+    <div class="body-wrapper mt-2 pt-3">
+        <div class="container">
+          <div class="row">
+            <!-- left part -->
+            <div class="col-md-7">
+              <div class="left-wrapper animate__animated animate__fadeIn">
+                <h2>About the Society</h2>
+                <p style="text-align:justify">The Plant Protection Association of India (PPAI) is a scientific society established in 1972. It is non-profit organization, registered under the Andhra Pradesh (Telangana Area) Public Societies Registration Act, 1350 Fasli (Act I of 1350 F.) on 4th December 1972. Its membership is open to all those scientists interested in promotion of plant protection and is dedicated for the cause. It operates from ICAR-National Bureau of Plant Genetic Resources, Regional Station, Hyderabad through an executive council and an editorial board duly elected once in two years.
+                    The association publishes a scientific journal called the Indian Journal of Plant Protection (IJPP). Four issues of the journal are published every year in March, June, September, and December. So far 49 volumes have been published.</p>
+                <a class="btn btn-custom read-1 bg-dark text-white" href="/society">Read More <i class="ml-2 fa fa-long-arrow-right" aria-hidden="true"></i></a>    
+                <br><br>
+                <!-- <div class="owl-carousel owl-theme pl-2">
+                  <div class="item"><a href=""><img class="img-fluid" src="images/ips-webiner.jpg" alt="Ips Webiner" /></a></div>
+                  <div class="item"><a href="election"><img class="img-fluid" src="images/election.jpg" alt="Election" /></a></div>
+                  <div class="item"><a href="login"><img class="img-fluid" src="images/membership-login.jpg" alt="Membership" /></a></div>
+                  <div class="item"><a href="#"><img class="img-fluid" src="images/online-submission.jpg" alt="Online Submission" /></a></div>
+                  <div class="item"><a href="news"><img class="img-fluid" src="images/newsletter.jpg" alt="Newsletter" /></a></div>
+                </div> -->
+    
+              </div>
+               <!-- video part -->
+              
+            </div>
+            <!-- left part -->
+
+            <div class="col-md-4 offset-md-1">
+              <aside>            
+                <iframe width="100%" height="300" src="https://www.youtube.com/embed/AKELsscTivg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                <!-- gallery start -->
+                <div class="gal mb-4">
+                    <a class="btn btn-custom read-1 bg-dark text-white" href="/gallery" style="margin-top:10px">Gallery<i class="ml-2 fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                </div>
+              </aside>
+            </div>
+
+    
+            {% comment %} <div class="col-md-4 offset-md-1">
+              <aside>            
+                <div class="latest shadow">
+                  <h4><i class="fa fa-volume-up mr-2" aria-hidden="true"></i>
+                     Latest News</h4>
+                  <ul class="list-group">                
+                    <li class="list-group-item"><a href="http://www.ipsdis.org/index.php?route=common/home/viewnews&amp;news_id=27">IPS Book Publications and Discounted Membership in student group life membership</a>
+                    <p>2023-04-24</p>
+                    </li>                
+                    <li class="list-group-item"><a href="http://www.ipsdis.org/index.php?route=common/home/viewnews&amp;news_id=26">Call for Editorial Board Members (Sr. Editor/Editor)</a>
+                    <p>2023-02-23</p>
+                    </li>                
+                    <li class="list-group-item"><a href="http://www.ipsdis.org/index.php?route=common/home/viewnews&amp;news_id=25">Proceedings of 75th Annual General Body Meeting - February 04, 2023</a>
+                    <p>2023-02-15</p>
+                    </li>                        
+                  </ul>
+                </div>
+                <!-- gallery start -->
+                <div class="gal mb-4">
+                    <a class="btn btn-custom read-1 bg-dark text-white" href="/gallery" style="margin-top:10px">Gallery<i class="ml-2 fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                </div>
+              </aside>
+            </div> {% endcomment %}
+            
+          </div>
+        </div>
+      </div>
+
+
+
+    
+    
+    {% comment %} <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"> {% endcomment %}
+    </iframe>
+</div>
+<script type="text/javascript">
+    var $ticker = $('[data-ticker="list"]'),
+    tickerItem = '[data-ticker="item"]'
+    itemCount = $(tickerItem).length,
+    viewportWidth = 0;
+
+function setupViewport(){
+    $ticker.find(tickerItem).clone().prependTo('[data-ticker="list"]');
+    
+    for (i = 0; i < itemCount; i ++){
+        var itemWidth = $(tickerItem).eq(i).outerWidth();
+        viewportWidth = viewportWidth + itemWidth;
+    }
+    
+    $ticker.css('width', viewportWidth);
+}
+
+function animateTicker(){
+    $ticker.animate({
+        marginLeft: -viewportWidth
+      }, 30000, "linear", function() {
+        $ticker.css('margin-left', '0');
+        animateTicker();
+      });
+}
+
+function initializeTicker(){
+    setupViewport();
+    animateTicker();
+    
+    $ticker.on('mouseenter', function(){
+        $(this).stop(true);
+    }).on('mouseout', function(){
+        animateTicker();
+    });
+}
+
+initializeTicker();
+</script>
+
+
+{% endblock body %}
+

@@ -1,0 +1,228 @@
+{% extends request.session.msg %}
+
+{%load static%}
+
+{% block title %}The Society{% endblock title %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'sidebar.css' %}">
+<script>
+    var x=3;
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+    function myFunction() {
+        
+        if(x%2 == 0)
+        {
+            document.getElementById("demo").innerHTML = "View less";
+            x++;
+        }
+        else
+        {
+            document.getElementById("demo").innerHTML = "View more";
+            x++;
+        }
+      }
+</script>
+<style>
+     .bg-light{
+        background-color:transparent !important;
+    } 
+</style>
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar" style="position:static">
+        
+
+        <ul class="list-unstyled components">
+            
+            <li>
+                <a href="#">Who are we</a>
+                
+            </li><hr>
+            <li>
+                <a href="#second">Our Legacy</a>
+            </li><hr>
+            <li>
+                <a href="#third" >Vision</a>
+                
+            </li><hr>
+            <li>
+                <a href="#forth">Constitution and Bylaws</a>
+            </li>
+        </ul>
+
+        
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" style="background-image: url({% static 'media/bg.png'%});">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span id="demo" onclick="myFunction()">View less </span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                
+            </div>
+        </nav>
+        <h2>Who are we</h2>
+        <p style="text-align:justify">The Plant Protection Association of India (PPAI) is a scientific society for promoting the cause of the science of Plant Protection. The Society focuses on the field of Entomology, Plant Pathology, Nematology and management of weeds.It provides a unique platform to the scientists working in the field of plant protection-related research to share their research achievements. It also keeps members informed about the various activities related to the development of plant protection and about the members of the society.<br><br>
+            The objectives of society include:
+            <ul style="list-style-type:disc;">
+                <li>To advance the cause of plant protection by encouraging and promoting plant protection research and education in the country.</li>
+                <li>To provide a forum for dissemination of information related to plant protection through a journal.</li>
+                <li>To bring about exchange of view and ideas of plant protection by organizing lectures, discussion, seminars, symposium etc.</li>
+                <li>To maintain a link between plant protection workers in India.</li>
+                <li>To facilitate closer association among members and other scientific workers in India and abroad.</li>
+                <li>To involve in any such activity as will be useful for the advancement of adoption of plant protection.</li>
+            </ul>
+            <p style="text-align:justify">
+            The Plant Protection Association of India (PPAI) is a scientific society established in 1972. It is non-profit organization, registered under the Andhra Pradesh (Telangana Area) Public Societies Registration Act, 1350 Fasli (Act I of 1350 F.) on 4th December 1972. Its membership is open to all those scientists interested in promotion of plant protection and is dedicated for the cause. It operates from ICAR-National Bureau of Plant Genetic Resources, Regional Station, Hyderabad through an executive council and an editorial board duly elected once in two years.<br>
+            The association publishes a scientific journal called the Indian Journal of Plant Protection (IJPP). Four issues of the journal are published every year in March, June, September, and December. So far 49 volumes have been published.
+            </p>
+
+        <div class="line"></div>
+
+        <h2 id="second">Our Legacy</h2>
+        <p style="text-align:justify">Plant Protection Association of India (PPAI), since its inception in 1972, completed 50 years of yeoman
+            service for the cause of Plant Protection both at National and International level. Dr K K Nirula was a
+            founder-member and first President of Plant Protection Association of India. The Association’s present
+            standing is entirely due to his untiring and dedicated efforts. The founder scientists of Central Plant
+            Protection &amp; Training Institute (CPPTI) set the agenda for PPAI in 1972.</p>
+
+        <div class="line"></div>
+
+        <h2 id="third">Vision</h2>
+        <p style="text-align:justify">Indian agriculture registered a phenomenal growth in the recent past mainly due to development
+            of varieties resistant to pathogen and adoption of latest plant protection measures. A lot more
+            need to be done to sustain the momentum gained. In this context, the contribution of the Society
+            in bringing to focus the area of research on diverse aspects of plant protection is invaluable. In
+            these five decades, the field of crop protection has evolved from the basic idea of integrated pest
+            control followed by integrated pest management into the present holistic concept of Plant Health
+            Management (PHM). It has opened a new era in safeguarding agri-herticultural crops against the
+            attack of arthropod pests, plant diseases and weeds for the benefit of farming community.<br> In this
+            cause, PPAI has demonstrated its ability to bring to the fore the fruits of scientific research and
+            facilitate all the concerned stakeholders by timely documentation through relevant publications
+            including the internationally reputed ‘Indian Journal of Plant Protection’ and regular
+            organization of several national and international conferences/seminars. This has enabled
+            provision of timely and appropriate science platforms for deliberation, exchange and spread of
+            the emerging knowledge in the areas of crop protection. However, in the near future the
+            challenges of increasing human population, global climate change with its impact on agriculture
+            and the relentless scientific conundrum of human made artificial intelligence, need urgent
+            attention and redressal. The PPAI is working for diverse global community of scientists that
+            provides credible and beneficial information related to plant protection; advocates and
+            participates in the exchange of knowledge with public, policy makers, and the larger scientific
+            community; and promotes and provides opportunities for scientific communication, career
+            preparation and professional development for its members.</p>
+
+        <div class="line"></div>
+
+        <h3 id="forth">Constitution and Bylaws</h3>
+        <p>
+            <h5>Crop Protection Federation</h5>
+            <strong>Article 1</strong><br>
+            <strong>Name:</strong> The name of the federation shall be “CROP PROTECTION FEDERATION”<br><br>
+            <strong>Article 2</strong><br>
+            <strong>Aims and Objectives</strong><br>
+            The Federation is established for the public benefit to advance research, education and exchange of information in crop protection and to publish or arrange for the publication of results of research in crop science. For those purposes the Federation will:<br>
+            <ol type="a" style="text-align:justify">
+                <li>	Mission: to serve the global cause of plant protection policy and action.<br></li>
+                <li>	Vision: Scientific consensus achieved on global food security through plant protection policy and action.<br></li>
+                <li>	Objectives:<br></li>
+                <ol type="i">
+                    <li>To share one platform for organzing international conferences and meetings that relates to research, development and policy matters of crop protection<br></li>
+                    <li>To facilitate closer association and the exchange of scientific information among plant protection stakeholders.<br></li>
+                    <li>To promote research publications of higher standards<br></li>
+                    <li>To publish critical Policy Papers/Reviews periodically on important current topics<br></li>
+                    <li>To publish the newsletters (latest in plant protection and on Crop Protection Federation) periodically for the benefit of members.<br></li>
+                    <li>To provide a national/global platform for farmers/policy matters/academia to address burning issues<br></li>
+                    <li>To help  in prioritizing national/global researchable agendas in plant protection<br></li>
+                    <li>To make linkages among various stakeholders of Plant Protection viz., Agro-chemical companies, Academia, corporates,NGOs, NPOs, Donor agencies etc.<br></li>
+                    <li>To use synergy of various societies in resolving food security on global level<br></li>
+                    <li>To interact with all the other related Societies and Federation for furthering the cause of Plant Protection<br></li><br>
+                </ol>
+            </ol>
+            
+            <strong>Article 3</strong><br>
+            <strong>Administration and membership</strong><br>
+            <ol type="a" style="text-align:justify;">
+                <li>The Federation shall consist pf Societies of Crop Protection or other societies with related interests, or subgroups of such societies, and normally will be drawn from within India.By special arrangement, societies from outside the Indian may also join the Federation on terms to be negotiated on an individual basis by the Executive Committee.Commercial companies and individuals may also become members of Federation on payment of dues directly to the Treasurer subject to approval of the application by the Executive Committee.<br></li>
+                <li>New admissions of Societies to membership of the Federation are to be decided by its Council, provided that the Society making the application has lodeged full details and documentation of its activities with the Secretary General at least three months before the Council meeting.<br></li>
+                <strong>Membership Type:</strong><br>
+                <ul>
+                    <li>Individual membership will be open to persons involved or interested or interested in plant pathology. Applications should be addressed to the Secretary-General<br></li>
+                    <li>Associated Societies: Associated Societies are usually regional/national/International societies with an interest in plant pathology or plant protection. Member Societies pay fees calculated according to their member numbers and calculated as a percentage of the annual membership fee for their society.<br></li>
+                    <li>Corporate Member:<br></li>
+                    <li>Other members(NOGo, NPOs)<br></li><br>
+                </ul> 
+            </ol>
+            <strong>Article 4</strong><br>
+            <strong>Governing body:</strong><br>
+            The affais of the Federation shall be conducted by a Council. The Council may empower a Consittuent Society to act on its be-half.<br>
+            The governing Body (executive Committee) consist of:<br>
+            <ul style="list-style-type:disc; text-align:justify;">
+                <li>President		: 	One<br></li>
+                <li>Vice President		:	Two<br></li>
+                <li>General Secretary	:	One<br></li>
+                <li>Treasurer		:	One<br></li>
+                <li>Joint Secretary		:	One<br></li>
+                <li>Councillors		:	2 or maximum 15<br></li><br>
+            </ul>
+            <strong>Functions of the governing body (Executive Committee)</strong><br>
+            <ul style="list-style-type:disc; text-align:justify;">
+                <li><strong>PRESIDENT</strong>	-All meetings of the Governing Body or General Body shall be chaired by the President.<br></li>
+                <li><strong>VICE PRESIDENT</strong>	-To perform the functions of the President in his absence.<br></li>
+                <li><strong>SECRETARY GENERAL</strong>	-Agenda dates, venue etc., shall be drawn out by the secretary in consultation with the President. All records pertaining to the memberships, circular, meeting etc. Shall be maintained by the Secretary. Minutes of all meetings shall also be recorder by the Secretary. <br></li>
+                <li><strong>TREASURER</strong>	-Accounts of income and expenditure shall be maintained by the Treasurer. An item wise register shall be maintained with the Treasurer. Sanction of money on various scientific activities shall be done by the Secretary. A statement pf accounts shall be presented at the Annual General Body meeting by the treasurer.<br></li>
+                <li><strong>JOINT SECRETARY</strong>	-To perform all the duties as desired by the President and the Secretary General, to act as Secretary General in his/her absence.<br></li>
+                <li><strong>COUNCILLORS</strong>	- The Councillor members shall assist in formulating various activities of the Federation. They shall keep the members informed on various developments.<br></li>
+            </ul>
+            The Governing Body shall work together to meet the objectives and will have the right to plan the course of activities like arrangement of Lectures/Seminars/Workshops, the venue and time and other details, after the agenda is passed by the Governing Body it shall be put to Genral Body for its approval for implementation.<br>
+            For the first time of the Governing body (Executive Committee) is considered by members nominated by the founder and desirous members.<br>
+            <ol type="a" style="text-align:justify">
+                <li>Each Constituent Society shall nominate one delegate and deputy to the Council of the Federation.The delegate shall be re-appointed biennially by the Constituent Society.<br></li>
+                <li>The Council shall appoint one of the Constituents to be the Host Society.The delegate to the Council of the Host Society shall, when present, act as President of the Council and is, in the Statutes, referred to as the President.<br></li>
+                <li>The Members of the Executive Committee are elected by the General Assembly: The Secretary General three months before the termination of the term of the E.C.members calls for new nominations for the positions of President, Vice President, Secretary-General, Treasurer, Joint Secretary. The nominations have to be submitted to the Secretary General not later than one month before the forthcoming Federation Congress and posted to all Federation members electronically.During the Congress, the new E.C. officers are elected during the General Assembly by all Federation members present. Each of these officers shall serve for a term of three years, but shall be eligible for re-appointment for a further  three years. None of these officers shall be a delegate for his constituent Society. Each of these officers and also the Incoming President shall be ex officio a full member of the Council with the right to vote.<br></li>
+                <li>Except as otherwise expressly provided by these Statutes, any matter to be decided by the Council shall be decided by  a simple majority vote of those present. Only accepted national delegates and officers have a voting right at the Council. One half of the accepted voting numbers constitute a quorum.The voting shall take place at a meeting of the Council, provided that invitation and an agenda for the meeting have been communicated to the Constituents at least three weeks before the meeting.<br></li>
+                <li>The Council shall meet a each Congress of the Federation. Extra-ordinary meetings of the Council can be called by the Council but only such matters can be decided which are specified on the Agenda.The members present constituent a quorum.<br></li>
+                <li>The Council shall decide:<br></li>
+                <ol type="1">
+                    <li>elections as specified in article 2,e and f<br>
+                    <li>accounts for the preseding period<br>
+                    <li>budget for the following period<br>
+                    <li>new admissions<br>
+                    <li>any other matter on the agenda<br>
+                </ol>
+            
+            
+                <li>Subject to the Council the administration of the Federation shall be vested in an Executive Committee consisting of the President, the Incoming President, the Secretary General, the Treasurer, They shall be empowered to act on behalf of the Council and to enter into contracts in the period between meetings of the Council.<br></li>
+                <li>Any Constituent Society is free to withdraw from the Federation at a meeting of the Council, provided notice of such a withdrawal has been communicated to the President at least one month before the Council meeting.<br></li>
+            </ol>
+            <br>
+            <strong>Article 5</strong><br>
+            <strong>Meetings of the Federation</strong><br>
+            <ol type="a" style="text-align:justify">
+                <li>A Congress of the Federation shall be held at least every 3/4 years at a place chosen by the Host Society and approved by the Council. A Congress shall also  be open to  non- members.<br></li>
+                <li>A Congress of the Federation shall provide opportunities  for the presentation of original communications, discussions, demonstrations and symposia. The detailed arrangements for the Congress shall be at the entire discretion of the Host Society.<br></li>
+                <li>The financial arrangements for a Congress are the responsibility of the Host Society but Federation may contribute to a Congress are the responsibility of the Host Society but Federation may contribute to a congress financially in amounts to be agreed by the Executive Committee. To ensure transparency concerning congress finances, the  amounts of each congress shall be available for scrutiny by the Executive Committee of Federation within 6 months of every Congress. These accounts  should  itemize all sources of income for the Congress and its outgoings together with a profit and loss statement. While Federation can have no responsibility for debts arising from a Congress, any financial profit  gained  from a Congress will be divided equally between Federation and the Host Society. This payment is subject to Federation receiving back no more than the amount it originally invested in the Congress. Registration Fees shall be the same for members of all constituent Societies and be at least 15% below those charged for non-members. To help with continuity and oversee Federation financial input, the immediate Past-President and current Chair of the Grants and Awards Committee will join the programme committee of each Congress.<br></li>
+                <li>The Host Society of the Congress or of other meetings of the Federation is free to make its own arrangement with publishers as regards the publication of symposia or similar scientific activities.<br></li>
+                <li>During each Congress the Council will convene a General Assembly of the  Federation, chaired by the President. The General Assembly will be open to all participants of the Congress. During the general Assembly the Executive Committee and the Council will give public account of the affairs of the Federation and will report on the decisions of the Council on the items  mentioned in article 2i. Also, the new members of the Executive Committee will be elected.<br></li>
+                <li>Quorum for governing body meeting: One-third of the Governing Body  present in person shall form a quorum for the transaction of business, but if any meeting the members present whatever their number shall form a quorum and shall have power to decide upon all matters which could have been disposed of at the meeting from which the adjournment took place. At the meeting of the Government Body, voting shall be by members personally present.<br></li>
+            </ol>
+
+        </p>
+    </div>
+</div>
+
+
+{% endblock body %}

@@ -1,0 +1,48 @@
+{% extends request.session.msg %}
+{%load static%}
+{% block title %}Newsletter{% endblock title %}
+{% load wagtailcore_tags %}
+{% block body %}
+<div style="background-image: url({% static 'media/bg.png'%});">
+<center>
+<div class="inner-wrap pt-4" style="width:85%; margin-top:5px; text-align:justify">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <h2>Newsletter</h2>
+            </div>            	
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Volume</th>
+                    <th scope="col">Issue</th>
+                    <th scope="col">Month</th>
+                    <th scope="col">View</th>
+                  </tr>
+                </thead>
+                <tbody>				    
+                    {% for post in blogpages %}
+                    {% with post=post.specific %}
+                    <tr>
+                        <td scope="row">{{forloop.counter}}</td>
+                        <td>{{post.year|richtext}}</td>
+                        <td>{{post.volume|richtext}}</td>
+                        <td>{{post.issue|richtext}}</td>
+                        <td>{{post.month|richtext}}</td>
+                        <td><a href="{{post.file.url}}" target="_blank">View Newsletter</a></td>
+                        
+                    </tr>
+                    {% endwith %}
+                    {% endfor %}
+                    	
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</center>
+</div>
+{% endblock %}
+

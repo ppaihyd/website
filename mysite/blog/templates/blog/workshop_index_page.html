@@ -1,0 +1,48 @@
+{% extends request.session.msg %}
+
+{%load static%}
+
+{% load wagtailcore_tags %}
+
+{% block title %}Workshop{% endblock title %}
+
+{% block body %}
+<div style="background-image: url({% static 'media/bg.png'%});">
+  <center>
+    <div class="inner-wrap pt-4" style="width:85%; margin-top:5px; text-align:justify">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-3">
+              <h2>Workshops</h2>
+            </div>  
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Year</th>
+        <th scope="col">Topic</th>
+        <th scope="col">Venue</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for post in blogpages %}
+        {% with post=post.specific %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{post.year | richtext}}</td>
+        <td>{{post.intro}}</td>
+        <td>{{post.venue}}</td>
+        <td>{{post.date}}</td>
+      </tr>
+      {% endwith %}
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+</center>
+</div>
+
+{% endblock body %}
