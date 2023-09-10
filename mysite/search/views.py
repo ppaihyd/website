@@ -8,7 +8,7 @@ from django.http import FileResponse
 
 
 from django.shortcuts import render, redirect
-from home.models import Values
+from home.models import Values, Admin
 
 from django.contrib import messages
 from datetime import datetime
@@ -72,13 +72,13 @@ def alogin(request):
     if(request.method=='POST'):
         if(request.POST.get('admin-username') and request.POST.get('admin-password')):
             request.session['admin-username'] = request.POST.get('admin-username')
-            result = Values.objects.filter(username=request.POST.get('admin-username'))
+            result = Admin.objects.filter(username=request.POST.get('admin-username'))
             if(len(result)<=0):
                 messages.error(request, 'Invalid credentials')
                 return redirect('/admin-login/')
             for i in result:
                 request.session['admin-username'] = request.POST.get('admin-username')
-                if(i.username == request.POST.get('admin-username') and i.password== request.POST.get('admin-password')):
+                if(i.username == request.POST.get('admin-username') and i.password==request.POST.get('admin-password')):
                     return redirect('/admin-home/')
                 else:
                     messages.error(request, 'Invalid credentials')
