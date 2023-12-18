@@ -71,7 +71,7 @@ class AwardsPage(Page):
     ]
 
 
-class ConferenceIndexPage(Page):
+class NationalConferenceIndexPage(Page):
     intro = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
@@ -85,7 +85,7 @@ class ConferenceIndexPage(Page):
         context['blogpages'] = blogpages
         return context
     
-class ConferencePage(Page):
+class NationalConferencePage(Page):
     intro = models.CharField(max_length=250)
     body = RichTextField("body", blank=True)
     year = RichTextField("year", blank=True)
