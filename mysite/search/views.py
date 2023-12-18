@@ -181,21 +181,21 @@ def downloads2(request):
         # url = 'search/base1.html'
         return redirect('/downloads/')
 
-def conferencest(request):
+def nationalconferencest(request):
     request.session['msg'] = 'search/base.html'
-    return redirect('/conferences/')
+    return redirect('/nationalconference/')
 
-def conferences1(request):
+def nationalconferences1(request):
     if(request.session.get('username')):
         request.session['msg'] = 'search/base1.html'
         # url = 'search/base1.html'
-        return redirect('/conferences/')
+        return redirect('/nationalconference/')
 
-def conferences2(request):
+def nationalconferences2(request):
     if(request.session.get('membership')):
         request.session['msg'] = 'search/base2.html'
         # url = 'search/base1.html'
-        return redirect('/conferences/')
+        return redirect('/nationalconference/')
 
 def awardst(request):
     request.session['msg'] = 'search/base.html'
