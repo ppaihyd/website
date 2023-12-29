@@ -1,41 +1,42 @@
 from django.db import models
 
 # Create your models here.
-from wagtail.models import Page
+from wagtail.models import Page, Orderable
 from wagtail.fields import RichTextField
-from wagtail.admin.panels import FieldPanel
+from wagtail.admin.panels import FieldPanel, InlinePanel
+from modelcluster.fields import ParentalKey
+from wagtail.search import index
 
+# class BlogIndexPage(Page):
+#     intro = RichTextField(blank=True)
 
-class BlogIndexPage(Page):
-    intro = RichTextField(blank=True)
+#     content_panels = Page.content_panels + [
+#         FieldPanel('intro')
+#     ]
 
-    content_panels = Page.content_panels + [
-        FieldPanel('intro')
-    ]
+#     def get_context(self, request):
+#         # Update context to include only published posts, ordered by reverse-chron
+#         context = super().get_context(request)
+#         blogpages = self.get_children().live().order_by('-first_published_at')
+#         context['blogpages'] = blogpages
+#         return context
 
-    def get_context(self, request):
-        # Update context to include only published posts, ordered by reverse-chron
-        context = super().get_context(request)
-        blogpages = self.get_children().live().order_by('-first_published_at')
-        context['blogpages'] = blogpages
-        return context
+# class BlogPage(Page):
+#     date = models.DateField("Post date")
+#     intro = models.CharField(max_length=250)
+#     body = RichTextField(blank=True)
+#     image = models.ForeignKey(
+#         'wagtailimages.Image', on_delete=models.SET_NULL, related_name='+', blank=True, null=True
+#     )
+#     caption = models.CharField(blank=True, max_length=250)
 
-class BlogPage(Page):
-    date = models.DateField("Post date")
-    intro = models.CharField(max_length=250)
-    body = RichTextField(blank=True)
-    image = models.ForeignKey(
-        'wagtailimages.Image', on_delete=models.SET_NULL, related_name='+', blank=True, null=True
-    )
-    caption = models.CharField(blank=True, max_length=250)
-
-    content_panels = Page.content_panels + [
-        FieldPanel('intro'),
-        FieldPanel('body'),
-        FieldPanel('date'),
-        FieldPanel('image'),
-        FieldPanel('caption'),
-    ]
+#     content_panels = Page.content_panels + [
+#         FieldPanel('intro'),
+#         FieldPanel('body'),
+#         FieldPanel('date'),
+#         FieldPanel('image'),
+#         FieldPanel('caption'),
+#     ]
 
 class AwardsIndexPage(Page):
     intro = RichTextField(blank=True)
@@ -110,6 +111,105 @@ class NationalConferencePage(Page):
         
     ]
 
+# International Conference 
+class BlogIndexPage(Page):
+    intro = RichTextField(blank=True)
+
+    def get_context(self, request):
+        # Update context to include only published posts, ordered by reverse-chron
+        context = super().get_context(request)
+        blogpages = self.get_children().live().order_by('-first_published_at')
+        context['blogpages'] = blogpages
+        return context
+
+class BlogPage(Page):
+    intro = models.CharField(max_length=250)
+    body = RichTextField(blank=True)
+    year = RichTextField("year", blank=True)
+    date = models.DateField("Date")
+    venue = models.CharField(max_length=250, default="")
+    search_fields = Page.search_fields + [
+        index.SearchField('intro'),
+        index.SearchField('body'),
+    ]
+
+    content_panels = Page.content_panels + [
+        FieldPanel('intro'),
+        FieldPanel('body'),
+        FieldPanel('year'),
+        FieldPanel('date'),
+        FieldPanel('venue'),
+        InlinePanel('gallery_images', label="Gallery images"),
+    ]
+
+
+class BlogPageGalleryImage(Orderable):
+    page = ParentalKey(BlogPage, on_delete=models.CASCADE, related_name='gallery_images')
+    image = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+    caption = models.CharField(blank=True, max_length=250)
+
+    panels = [
+        FieldPanel('image'),
+        FieldPanel('caption'),
+    ]
+
+# class InternationalConferenceIndexPage(Page):
+#     intro = RichTextField(blank=True)
+
+#     content_panels = Page.content_panels + [
+#         FieldPanel('intro')
+#     ]
+
+#     def get_context(self, request):
+#         # Update context to include only published posts, ordered by reverse-chron
+#         context = super().get_context(request)
+#         blogpages = self.get_children().live().order_by('-first_published_at')
+#         context['blogpages'] = blogpages
+#         return context
+    
+# class InternationalConferencePage(Page):
+#     intro = models.CharField(max_length=250)
+#     body = RichTextField("body", blank=True)
+#     year = RichTextField("year", blank=True)
+#     type = models.CharField(max_length=100, default="")
+#     date = models.DateField("Date")
+#     venue = models.CharField(max_length=250)
+#     caption = models.CharField(blank=True, max_length=250)
+#     image = models.ForeignKey(
+#         'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+#     )
+
+#     def main_image(self):
+#         gallery_item = self.gallery_images.first()
+#         if gallery_item:
+#             return gallery_item.image
+#         else:
+#             return None
+
+#     content_panels = Page.content_panels + [
+#         FieldPanel('intro'),
+#         FieldPanel('body'),
+#         FieldPanel('year'),
+#         FieldPanel('type'),
+#         FieldPanel('date'),
+#         FieldPanel('venue'),
+#         FieldPanel('caption'),
+#         InlinePanel('gallery_images', label="Gallery images"),
+#     ]
+
+# class InternationalConferencePageGalleryImage(Orderable):
+#     page = ParentalKey(BlogPage, on_delete=models.CASCADE, related_name='gallery_images')
+#     image = models.ForeignKey(
+#         'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+#     )
+#     caption = models.CharField(blank=True, max_length=250)
+
+#     panels = [
+#         FieldPanel('image'),
+#         FieldPanel('caption'),
+#     ]
 
 class WorkshopIndexPage(Page):
     intro = RichTextField(blank=True)
