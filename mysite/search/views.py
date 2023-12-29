@@ -197,6 +197,23 @@ def nationalconferences2(request):
         # url = 'search/base1.html'
         return redirect('/nationalconference/')
 
+def internationalconferencest(request):
+    request.session['msg'] = 'search/base.html'
+    request.session['range']=range(10)
+    return redirect('/internationalconference/')
+
+def internationalconferences1(request):
+    if(request.session.get('username')):
+        request.session['msg'] = 'search/base1.html'
+        # url = 'search/base1.html'
+        return redirect('/internationalconference/')
+
+def internationalconferences2(request):
+    if(request.session.get('membership')):
+        request.session['msg'] = 'search/base2.html'
+        # url = 'search/base1.html'
+        return redirect('/internationalconference/')
+
 def awardst(request):
     request.session['msg'] = 'search/base.html'
     return redirect('/awards/')
