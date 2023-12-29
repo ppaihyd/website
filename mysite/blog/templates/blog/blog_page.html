@@ -1,35 +1,33 @@
-{% extends 'search/base.html' %}
+{% extends "base.html" %}
 
-{% load wagtailcore_tags %}
 {% load wagtailcore_tags wagtailimages_tags %}
 
-{% block body %}
-    {% image page.image fill-320x240 %}
-    <p>{{ page.caption }}</p>
+{% block body_class %}template-blogpage{% endblock %}
 
-    <h1>{{ page.title }}</h1>
+{% block content %}
+    
+    <div style="margin:10px;">
+        <center><h1>International Conference</h1></center>
+        <hr>
+        
+        <!-- <p class="meta">{{ page.date }}</p>
 
-    <p class="meta">{{ page.date }}</p>
+        <div class="intro">{{ page.intro }}</div>
 
-    <div class="intro"><strong>{{ page.intro }}</strong></div>
+        {{ page.body|richtext }} -->
 
-    {{ page.body|richtext }}
+        
+        {% for i in "x"|ljust:90 %}
+            
+            <div style="float: left; margin: 20px">
+                <img src="/media/images/internationalconferencegallery/internationalconference{{forloop.counter}}.JPG" height="300" width="300">
+                <!-- <p>{% image item.image fill-400x400 %}</p> -->
+                <!-- <p>{{ item.caption }}</p> -->
+                
+            </div>
+        {% endfor %}
+        <br><br>
+        <div style="position: fixed; left: 0; bottom: 0; width: 100%; text-align: center;"><a href="{{ page.get_parent.url }}">Return to blog</a></p>
 
-    <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
+    </div>
 {% endblock %}
-
-<!-- {% block content %}
-    {% image page.image fill-320x240 %}
-    <p>{{ page.caption }}</p>
-
-    <h1>{{ page.title }}</h1>
-
-    <p class="meta">{{ page.date }}</p>
-
-    <div class="intro"><strong>{{ page.intro }}</strong></div>
-
-    {{ page.body|richtext }}
-
-    <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
-
-{% endblock %} -->
