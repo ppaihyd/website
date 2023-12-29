@@ -199,7 +199,6 @@ def nationalconferences2(request):
 
 def internationalconferencest(request):
     request.session['msg'] = 'search/base.html'
-    request.session['range']=range(10)
     return redirect('/internationalconference/')
 
 def internationalconferences1(request):
